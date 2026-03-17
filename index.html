@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>A Message For You</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+
+background-image:url("background1.jpeg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+min-height:100vh;
+padding:40px 0;
+}
+
+.box{
+background:rgba(255,255,255,0.45);
+padding:30px;
+border-radius:15px;
+width:90%;
+max-width:700px;
+margin:auto;
+box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+
+h1{
+text-align:center;
+}
+
+#text{
+font-size:18px;
+line-height:1.6;
+white-space:pre-line;
+}
+
+button{
+padding:14px 25px;
+font-size:18px;
+background:#ff4d6d;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-top:30px;
+display:none;
+}
+
+.center{
+text-align:center;
+}
+
+.music-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff4d6d;
+color:white;
+border:none;
+border-radius:50px;
+padding:12px 18px;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<audio id="music" loop preload="auto">
+<source src="Chubina.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box">
+
+<h1>Hey</h1>
+
+<p id="text"></p>
+
+<div class="center">
+<a href="index1.html">
+<button id="nextBtn">Click Here</button>
+</a>
+</div>
+
+</div>
+
+<button class="music-btn" onclick="playMusic()">🎵 Play Music</button>
+
+<script>
+
+const music = document.getElementById("music");
+
+/* Auto try */
+window.onload = function(){
+music.play().catch(()=>{});
+}
+
+/* Manual button */
+function playMusic(){
+music.play();
+}
+
+/* First click anywhere */
+document.addEventListener("click",function(){
+music.play();
+},{once:true});
+
+
+const message = `Hey,
+
+Maine yeh website isliye banayi hai taaki main tumhe apni feelings clearly bata sakun. Saath hi 15 November 2025 ko tumne mujhse jo questions pooche the, un sabka answer bhi yahan dena chahta hoon.
+
+Tumhare main questions yeh the:
+
+• Mujhe feelings kab aur kyu aayi?
+• Tour wale din Harshit ko kaise pata chala aur maine usse kya bataya?
+
+Sabse pehle, mujhe feelings ka exact moment shayad khud bhi nahi pata. Lekin mujhe yaad hai ki 11th ki starting mein main kabhi-kabhi tumhare baare mein sochne laga tha. Us time mujhe khud bhi clear nahi tha ki yeh feelings hain ya bas normal thoughts. Maine yeh baat Ayush aur Vishesh ko bhi batayi thi.
+
+Kuch din baad ek din school mein tumhara message aaya tha ki main tumhare sapne mein aaya tha. Us waqt mere bagal mein Ayush aur Vishesh baithe hue the. Jab unhone yeh suna to woh mujhe tease karne lage. Us time bhi feelings utni strong nahi thi, lekin kahin na kahin lagta tha ki shayad time ke saath yeh badh sakti hain.
+
+Time ke saath hum normal baat karte rahe aur time spend hota raha. Agar reason ki baat karun ki mujhe tum pasand kyu aayi, to koi ek specific reason nahi hai. Lekin tumhara behaviour — kabhi kabhi extrovert ho jana, funny hona, cute hona, talkative hona — yeh sab cheezein hain jo mujhe tumhare andar achchi lagti hain.
+
+Ab second question ka answer.
+
+Tour wale din ek moment aisa aaya jab Harshit tumse thoda zyada hi frank ho raha tha. Mujhe woh thoda ajeeb laga, isliye maine usse hint dena start kiya taaki woh thoda distance rakhe. Maine usse 3 baar hint diya, lekin shayad usne seriously nahi liya.
+
+Phir jab hum sab ladke park mein baith kar khana kha rahe the, tab tum aur Khushi mera phone lene aaye. Us time Harshit ne phir tumse kuch bola. Tab maine Mohit se achanak pucha ki Varanasi ka train ticket kitne ka aata hai. Harshit ne turant uska price batana start kar diya. Tab maine mazak mein bola ki main usse dobara Varanasi bhej dunga.
+
+Us moment par Harshit thoda sochne laga ki maine aisa kyu bola. Jab hum wahan se nikal rahe the, shayad confirm karne ke liye ya mera reaction dekhne ke liye usne mere saamne hi tumse woh baat bol di. Us waqt main obviously thoda nervous ho gaya tha, kyunki mujhe bhi laga ki shayad yeh baat aise nahi bolni chahiye thi. Tum bhi thodi confused ho gayi thi ki achanak kya ho gaya. Tab Khushi ne beech mein bol diya ki woh mazak kar raha hai, aur uske baad situation thodi normal ho gayi.
+
+Mujhe us time lag raha tha ki shayad ek ya do din baad tum mujhse baat karna band kar dogi. Isi wajah se main thoda upset tha aur bus mein chup chaap baitha hua tha.
+
+Tab Harshit ne mujhse pucha ki kya mujhe woh pasand hai. Pehle maine mana kar diya. Lekin phir maine socha ki shayad woh dubara baat na kare, isliye maine finally haan bol diya.
+
+Tumhara ek aur question tha ki usne naam nahi liya tha, phir kaise pata chala ki woh tumhari hi baat kar raha tha.
+
+Agar thoda sa logic lagaya jaaye, to us poore tour mein main zyada time tum aur Khushi ke saath hi tha. Aur obviously Khushi ke baare mein woh nahi bol raha tha. Isliye bina naam liye bhi samajh a gaya ki baat tumhari hi ho rahi thi.
+`;
+
+let i = 0;
+
+function typeWriter(){
+if(i < message.length){
+document.getElementById("text").innerHTML += message.charAt(i);
+i++;
+setTimeout(typeWriter,20);
+}
+else{
+document.getElementById("nextBtn").style.display="inline-block";
+}
+}
+
+typeWriter();
+
+</script>
+
+</body>
+</html>
